@@ -58,6 +58,5 @@ C:\Git\Misc\json_webapi\json_webapi\bin\System.Web.WebPages.xml
 C:\Git\Misc\json_webapi\json_webapi\bin\System.Web.WebPages.Deployment.xml
 C:\Git\Misc\json_webapi\json_webapi\bin\System.Web.WebPages.Razor.xml
 C:\Git\Misc\json_webapi\json_webapi\bin\Antlr3.Runtime.pdb
-C:\Git\Misc\json_webapi\json_webapi\obj\Debug\json_webapi.csprojResolveAssemblyReference.cache
 C:\Git\Misc\json_webapi\json_webapi\obj\Debug\json_webapi.dll
 C:\Git\Misc\json_webapi\json_webapi\obj\Debug\json_webapi.pdb
