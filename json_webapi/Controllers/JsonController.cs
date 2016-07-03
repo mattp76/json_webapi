@@ -48,14 +48,24 @@ namespace json_webapi.Controllers
                         response.Content = new StringContent(json, Encoding.Unicode);                   
                     }
                 }
+                else
+                {
+                    return ErrorResponse();
+
+                }
             }
             catch (Exception ex)
             {
-                var myError = new { Error = "Could not decode request: JSON parsing failed" };
-                return Request.CreateResponse(HttpStatusCode.BadRequest, myError);
+                return ErrorResponse();
             }
 
             return response;
+        }
+
+        public HttpResponseMessage ErrorResponse()
+        {
+            var myError = new { Error = "Could not decode request: JSON parsing failed" };
+            return Request.CreateResponse(HttpStatusCode.BadRequest, myError);
         }
     }
 }
