@@ -67,18 +67,24 @@ namespace json_webapi.Controllers
         public HttpResponseMessage ValidResponse(ResponseModel res)
         {
             string json = JsonConvert.SerializeObject(res);
-            HttpResponseMessage response = new HttpResponseMessage();
+            HttpResponseMessage validResponseMsg = new HttpResponseMessage();
 
-            response = Request.CreateResponse(HttpStatusCode.OK);
-            response.Content = new StringContent(json, Encoding.Unicode);
-            return response;
+            validResponseMsg = Request.CreateResponse(HttpStatusCode.OK);
+            validResponseMsg.Content = new StringContent(json);
+            validResponseMsg.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            return validResponseMsg;
         }
 
 
         public HttpResponseMessage ErrorResponse()
         {
             var myError = new { Error = "Could not decode request: JSON parsing failed" };
-            return Request.CreateResponse(HttpStatusCode.BadRequest, myError);
+            HttpResponseMessage errResponseMsg = new HttpResponseMessage();
+
+            errResponseMsg = Request.CreateResponse(HttpStatusCode.BadRequest, myError);
+            errResponseMsg.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            return errResponseMsg;
         }
     }
 }
